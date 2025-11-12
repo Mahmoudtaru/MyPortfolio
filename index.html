@@ -1,0 +1,1222 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahmoud Harb Hussien - Dentist | Medical Content Creator | Ai Instructor</title>
+
+    <!-- جلب الخطوط من جوجل -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD Schema for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Mahmoud Harb Hussien",
+      "url": "",
+      "jobTitle": "Dentist | Medical/Dental Content creator | Ai Instructor",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelance"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Cairo",
+        "addressCountry": "EG"
+      },
+      "email": "mahmoud18harb08@gmail.com",
+      "telephone": "+2001157487804"
+    }
+    </script>
+
+    <style>
+        /* 1. متغيرات الألوان والتصميم */
+        :root {
+            --bg-color: #0A192F;
+            --text-primary: #CCD6F6;
+            --text-secondary: #8892B0;
+            --accent-color: #64FFDA;
+            --accent-color-hover: rgba(100, 255, 218, 0.1);
+            --card-bg: #112240;
+            --font-primary: 'Inter', sans-serif;
+            --font-mono: 'Fira Code', monospace;
+            --max-width: 1100px;
+            --border-radius: 4px;
+            --header-height: 80px;
+        }
+
+        /* 2. إعادة تعيين (Reset) أساسية */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* إخفاء العناصر للطباعة */
+        @media print {
+            body {
+                background-color: #FFF;
+                color: #000;
+            }
+            .no-print, .header, .social-links, .print-button-wrapper {
+                display: none !important;
+            }
+            main {
+                padding: 0 !important;
+            }
+            section {
+                margin-top: 2rem !important;
+                padding: 0 !important;
+                border: none !important;
+                box-shadow: none !important;
+            }
+            .timeline-item, .project-card, .skill-bar-wrapper {
+                page-break-inside: avoid;
+            }
+            h1, h2, h3 {
+                color: #000;
+            }
+            .timeline-dot {
+                border-color: #000;
+            }
+        }
+        
+        /* 3. أنماط مساعدة */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 100px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--text-primary);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            font-family: var(--font-mono);
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            flex-grow: 1;
+            height: 1px;
+            background-color: var(--card-bg);
+            margin-left: 20px;
+        }
+        
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+        }
+
+        a:hover {
+            filter: brightness(1.2);
+            text-decoration: underline;
+        }
+
+        .cta-button {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            border-radius: var(--border-radius);
+            padding: 0.75rem 1.25rem;
+            cursor: pointer;
+            background-color: transparent;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-color-hover);
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 4. الهيدر (Header) والتنقل */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: var(--header-height);
+            padding: 0 2rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(10, 25, 47, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            transition: top 0.3s ease-in-out;
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        .nav-list {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+        }
+
+        .nav-list li {
+            counter-increment: nav-item;
+        }
+
+        .nav-list a {
+            color: var(--text-primary);
+        }
+
+        .nav-list a::before {
+            content: '0' counter(nav-item) '. ';
+            color: var(--accent-color);
+        }
+
+        .nav-list a:hover {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        
+        .mobile-nav-toggle {
+            display: none; /* مخفي على الديسكتوب */
+            z-index: 101;
+        }
+
+        /* 5. قسم الـ Hero */
+        #hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 100vh;
+            padding-top: var(--header-height);
+        }
+
+        .hero-intro {
+            font-family: var(--font-mono);
+            color: var(--accent-color);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-name {
+            font-size: clamp(40px, 8vw, 70px);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-title {
+            font-size: clamp(30px, 6vw, 50px);
+            font-weight: 700;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .typing-cursor {
+            display: inline-block;
+            width: 10px;
+            height: 1.1em;
+            background-color: var(--accent-color);
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .hero-summary {
+            max-width: 600px;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        /* 6. قسم "عني" (About) */
+        #about p {
+            max-width: 700px;
+        }
+        
+        /* 7. قسم الخبرات (Experience) - تصميم الخط الزمني */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+        }
+
+        .timeline-item {
+            padding: 2rem 2rem 2rem 3rem;
+            position: relative;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--text-secondary);
+        }
+        
+        .timeline-item:last-child::before {
+            height: 3.5rem; /* يوقف الخط عند النقطة */
+        }
+
+        .timeline-dot {
+            content: '';
+            position: absolute;
+            left: 12px;
+            top: 2.2rem;
+            width: 18px;
+            height: 18px;
+            border: 3px solid var(--accent-color);
+            border-radius: 50%;
+            background: var(--bg-color);
+            z-index: 1;
+        }
+        
+        .timeline-date {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-title {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-org {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-bullets li {
+            position: relative;
+            padding-left: 25px;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-bullets li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            line-height: 1.2;
+        }
+
+        /* 8. قسم المشاريع (Projects) */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+            transition: all 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-icon {
+            color: var(--accent-color);
+            width: 40px;
+            height: 40px;
+        }
+        
+        .project-links a {
+            color: var(--text-secondary);
+            margin-left: 1rem;
+        }
+        .project-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .project-title a:hover {
+            text-decoration: none;
+        }
+        
+        .project-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            flex-grow: 1;
+            /* تم الإضافة: لتوسيط الزر والنص */
+            text-align: center;
+        }
+
+        .project-button {
+            display: inline-block;
+            margin-top: 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            border-radius: var(--border-radius);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            background-color: transparent;
+            transition: all 0.2s ease-in-out;
+        }
+        .project-button:hover {
+            background-color: var(--accent-color-hover);
+            text-decoration: none;
+        }
+
+        /* 9. قسم المهارات (Skills) */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .skill-category {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+        }
+        
+        .skill-category h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+            font-family: var(--font-mono);
+        }
+        
+        .skill-bar-wrapper {
+            margin-bottom: 0.75rem;
+        }
+        
+        .skill-bar-wrapper p {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+        
+        .skill-bar {
+            width: 100%;
+            height: 8px;
+            background-color: rgba(204, 214, 246, 0.2);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+        
+        .skill-bar-inner {
+            height: 100%;
+            width: 0; /* يبدأ من الصفر */
+            background-color: var(--accent-color);
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* 10. قسم الاتصال (Contact) */
+        #contact {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        #contact .hero-intro {
+            margin-bottom: 0.5rem;
+        }
+        
+        #contact h2 {
+            font-size: clamp(30px, 5vw, 50px);
+            justify-content: center;
+            font-family: var(--font-primary);
+            margin-bottom: 1rem;
+        }
+        
+        #contact h2::after {
+            display: none; /* إخفاء الخط */
+        }
+
+        #contact p {
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-social-icons svg {
+            width: 28px;
+            height: 28px;
+            color: var(--text-secondary);
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .contact-social-icons a:hover svg {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .contact-email-link {
+            color: var(--text-secondary);
+            transition: all 0.2s ease-in-out;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+        }
+        .contact-email-link:hover {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        /* 11. الفوتر (Footer) والروابط الجانبية */
+        .social-links {
+            position: fixed;
+            bottom: 0;
+            left: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            z-index: 10;
+        }
+        
+        .social-links::after {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 90px;
+            background-color: var(--text-secondary);
+        }
+        
+        .social-links svg {
+            width: 20px;
+            height: 20px;
+            color: var(--text-secondary);
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .social-links a:hover svg {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .email-link {
+            position: fixed;
+            bottom: 0;
+            right: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            z-index: 10;
+        }
+        
+        .email-link::after {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 90px;
+            background-color: var(--text-secondary);
+        }
+        
+        .email-link a {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            writing-mode: vertical-rl;
+            color: var(--text-secondary);
+            letter-spacing: 0.1em;
+        }
+        
+        .email-link a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+            text-decoration: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* 12. زر الطباعة */
+        .print-button-wrapper {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 50;
+        }
+        
+        .print-button {
+            background-color: var(--card-bg);
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .print-button:hover {
+            background-color: var(--accent-color-hover);
+            box-shadow: 0 0 10px var(--accent-color);
+        }
+
+
+        /* 13. التجاوب (Responsive Design) */
+        @media (max-width: 1080px) {
+            .social-links, .email-link {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+
+            .nav-list {
+                position: fixed;
+                top: 0;
+                right: 0;
+                height: 100vh;
+                width: min(75vw, 400px);
+                flex-direction: column;
+                justify-content: center;
+                gap: 2rem;
+                background-color: var(--card-bg);
+                transform: translateX(100%);
+                transition: transform 0.3s ease-in-out;
+                font-size: 1.2rem;
+            }
+            
+            .nav-list.is-active {
+                transform: translateX(0);
+            }
+
+            .mobile-nav-toggle {
+                display: block;
+                position: relative;
+                width: 30px;
+                height: 20px;
+                background: transparent;
+                border: none;
+                cursor: pointer;
+            }
+            
+            .mobile-nav-toggle .bar {
+                display: block;
+                width: 100%;
+                height: 2px;
+                background-color: var(--accent-color);
+                position: absolute;
+                transition: all 0.3s ease-in-out;
+            }
+            
+            .bar.top { top: 0; }
+            .bar.middle { top: 50%; transform: translateY(-50%); }
+            .bar.bottom { bottom: 0; }
+
+            /* أنيميشن زر الموبايل (X) */
+            .is-active .bar.top {
+                transform: rotate(45deg);
+                top: 9px;
+            }
+            .is-active .bar.middle {
+                opacity: 0;
+            }
+            .is-active .bar.bottom {
+                transform: rotate(-45deg);
+                top: 9px;
+            }
+
+            .timeline-item {
+                padding-left: 2rem;
+            }
+            .timeline-dot { left: 4px; }
+            .timeline-item::before { left: 10px; }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- 1. الهيدر (Header) -->
+    <header class="header no-print" id="header">
+        <div class="logo">
+            <a href="#">MH</a>
+        </div>
+        <button class="mobile-nav-toggle no-print" id="mobile-nav-toggle" aria-label="Toggle navigation">
+            <span class="bar top"></span>
+            <span class="bar middle"></span>
+            <span class="bar bottom"></span>
+        </button>
+        <nav>
+            <ul class="nav-list" id="nav-list">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <!-- تم الإضافة -->
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <!-- تم التحديث: رابط تحميل السيرة الذاتية -->
+                    <a href="https://drive.google.com/file/d/1Oeva_GAmVzWQJiZHVSsHnnYrRE-902jz/view?usp=sharing" class="cta-button" target="_blank" rel="noopener noreferrer">Download CV</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- روابط السوشيال الجانبية (للديسكتوب) -->
+    <div class="social-links no-print">
+        <!-- تم التحديث: رابط Linktree -->
+        <a href="https://linktr.ee/Mahmoud_harb18" aria-label="Linktree" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"></path>
+                <path d="M12.5 8.5v7"></path>
+                <path d="M10 8.5v7"></path>
+                <path d="M15 12h-5"></path>
+            </svg>
+        </a>
+        <!-- تم الإضافة: رابط بورتفوليو الأسنان -->
+        <a href="https://drive.google.com/file/d/1MRqJChmmV-jtYfQCJU__QzuRZxTjlv13/view?usp=sharing" aria-label="Dental Portfolio" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        </a>
+        <!-- تم الإضافة: رابط LinkedIn -->
+        <a href="https://www.linkedin.com/in/mahmoud-harb-ui1808ux/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        </a>
+        <!-- تم الإضافة: رابط Facebook -->
+        <a href="https://www.facebook.com/profile.php?id=100009507650140" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        </a>
+        <!-- تم الإضافة: رابط WhatsApp -->
+        <a href="https://api.whatsapp.com/send?phone=201157487804" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        </a>
+    </div>
+
+    <!-- رابط الإيميل الجانبي (للديسكتوب) -->
+    <div class="email-link no-print">
+        <a href="mailto:mahmoud18harb08@gmail.com">mahmoud18harb08@gmail.com</a>
+    </div>
+    
+    <!-- زر الطباعة -->
+    <div class="print-button-wrapper no-print">
+        <button class="print-button" id="print-button" aria-label="Print Page" onclick="window.print()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+        </button>
+    </div>
+
+    <main>
+        <div class="container">
+
+            <!-- 2. قسم الـ Hero -->
+            <section id="hero">
+                <div class="hero-intro">Hi, my name is</div>
+                <h1 class="hero-name">Mahmoud Harb Hussien.</h1>
+                <h2 class="hero-title">
+                    <span id="typing-effect"></span>
+                    <span class="typing-cursor"></span>
+                </h2>
+                <p class="hero-summary">
+                    I'm a Dentist and AI-based medical content strategist based in Cairo, specializing in creative marketing, branding, and digital education for the healthcare sector.
+                </p>
+                <div>
+                    <a href="#contact" class="cta-button">Get In Touch</a>
+                </div>
+            </section>
+
+            <!-- 3. قسم "عني" (About) -->
+            <section id="about">
+                <h2>About Me</h2>
+                <!-- ملاحظة: البيانات ناقصة هنا: الصورة الشخصية -->
+                <p>
+                    A Dentist and Al-based medical content strategist specializing in creative marketing,
+                    branding, and digital education solutions for the healthcare sector.
+                </p>
+                <p>
+                    Experienced in leveraging Al tools to produce high-impact content, including video advertisements,
+                    brand visuals, application prototypes, and automated communication systems. Founder
+                    of multiple Al-powered learning projects for dentists and medical professionals.
+                </p>
+            </section>
+
+            <!-- 4. قسم الخبرات (Experience) -->
+            <section id="experience">
+                <h2>Experience</h2>
+                <div class="timeline">
+                    
+                    <!-- الترتيب الجديد: 1. Content Creator -->
+                    <div class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-date">2023 - Present</div>
+                        <h3 class="timeline-title">Freelance Al Content Creator & Designer</h3>
+                        <ul class="timeline-bullets">
+                            <li>Produce medical advertisements using advanced Al tools (Veo3, CGI, motion graphics, avatars).</li>
+                            <li>Develop comprehensive brand identities and visual systems for medical clinics and doctors.</li>
+                            <li>Build content strategies and messaging tailored for social media & landing pages.</li>
+                            <li>Create short-form educational video content and visual case simplifications.</li>
+                        </ul>
+                    </div>
+
+                    <!-- الترتيب الجديد: 2. AI Instructor -->
+                    <div class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-date">August 2025 - Present</div>
+                        <h3 class="timeline-title">AI Instructor (Smarter With AI)</h3>
+                        <ul class="timeline-bullets">
+                            <li>Teaching students how to leverage AI in their work, study, and daily life.</li>
+                            <li>Training includes prompt engineering, designing images, presentations, videos, websites, and applications.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- الترتيب الجديد: 3. AI Trainer -->
+                    <div class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-date">January 2024 - February 2025</div>
+                        <h3 class="timeline-title">AI Trainer (Language Models)</h3>
+                        <ul class="timeline-bullets">
+                            <li>Responsible for evaluating, testing, and training large language models (LLMs) to improve their performance and accuracy.</li>
+                        </ul>
+                    </div>
+
+                    <!-- الترتيب الجديد: 4. Media Buyer -->
+                    <div class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-date">2025 - Present</div>
+                        <h3 class="timeline-title">Media Buyer - Facebook Ads</h3>
+                        <ul class="timeline-bullets">
+                            <li>Plan and optimize paid advertising campaigns for medical services.</li>
+                            <li>Develop high-conversion ad creatives and effective audience targeting strategies.</li>
+                        </ul>
+                    </div>
+
+                    <!-- الترتيب الجديد: 5. Digital Dentistry (الأخيرة) -->
+                    <div class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-date">2025 - Present</div>
+                        <h3 class="timeline-title">Digital Dentistry Intern</h3>
+                        <h4 class="timeline-org">Everst Dental Lab</h4>
+                        <ul class="timeline-bullets">
+                            <li>Execute CAD/CAM workflows and design dental prosthetics using Exocad.</li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </section>
+
+            <!-- 5. قسم التعليم والشهادات (جديد) -->
+            <section id="education">
+                <h2>Education & Certs</h2>
+                <div class="timeline">
+                    <!-- التعليم -->
+                    <div class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-date">2017-2022</div>
+                        <h3 class="timeline-title">Bachelor of Dental Surgery</h3>
+                        <h4 class="timeline-org">Minya University</h4>
+                    </div>
+                    <!-- الشهادات -->
+                    <div class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <h3 class="timeline-title">Certificates & Training</h3>
+                        <ul class="timeline-bullets" style="margin-top: 1rem;">
+                            <!-- بيانات من السيرة الذاتية الأخيرة -->
+                            <li>Al Smart Man (2025) - Branding, Content Strategy, Al Tools, Automation.</li>
+                            <li>Content 101- On Track (2025)</li>
+                            <li>Al for Content Creation - On Track (2025)</li>
+                            <li>The Digital Marketing Guide - Online Workshop (2025)</li>
+                            <li>Al Career Essentials - ALX (2024)</li>
+                            <li>Media Buying - Facebook Ads (2024)</li>
+                            <li>UX Nanodegree - Udacity (2022)</li>
+                            <li>Foundations of UX Design - Google (2022)</li>
+                            <li>Digital Dentistry Internship - Everst Dental Lab (2025)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. قسم المشاريع (Projects) - تم تغيير ترقيمه -->
+            <section id="projects">
+                <h2>Projects</h2>
+                <div class="projects-grid">
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <svg class="project-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a.5.5 0 0 0 0-.856L12 6.303l-6.16 3.422a.5.5 0 0 0 0 .856L12 14z"></path><path d="M12 21l-9-5 9-5 9 5-9 5z"></path></svg>
+                             <div class="project-links">
+                            </div>
+                        </div>
+                        <h3 class="project-title">Smarter With Al - Training Program</h3>
+                        <div class="project-desc">
+                            <p>Al learning track for students & professionals.</p>
+                            <a href="https://mahmoudtaru.github.io/Smarter-With-Ai-course/" class="project-button" target="_blank" rel="noopener noreferrer">View Project</a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-header">
+                            <svg class="project-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                             <div class="project-links">
+                            </div>
+                        </div>
+                        <h3 class="project-title">Smarter Dentists With Al App</h3>
+                        <div class="project-desc">
+                            <p>Al-powered learning & productivity app for dentists.</p>
+                            <a href="https://mahmoudtaru.github.io/Smarter-Dentists-With-Ai" class="project-button" target="_blank" rel="noopener noreferrer">View Project</a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-header">
+                            <svg class="project-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path><path d="M8.5 16.5a1.5 1.5 0 0 0 0 3"></path><path d="M15.5 16.5a1.5 1.5 0 0 1 0 3"></path><path d="M8 14s1.5-2 4-2 4 2 4 2"></path><path d="M9 9h.01"></path><path d="M15 9h.01"></path></svg>
+                             <div class="project-links">
+                            </div>
+                        </div>
+                        <h3 class="project-title">Holy Quran Radio</h3>
+                        <div class="project-desc">
+                            <p>A minimal app that streams Quran radio instantly.</p>
+                            <a href="https://mahmoudtaru.github.io/holyquranradio" class="project-button" target="_blank" rel="noopener noreferrer">View Project</a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-header">
+                            <svg class="project-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v15H6.5A2.5 2.5 0 0 1 4 14.5V4.5A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                             <div class="project-links">
+                            </div>
+                        </div>
+                        <h3 class="project-title">Mahmoud's Learning Space</h3>
+                        <div class="project-desc">
+                            <p>A hub for visual dental simplifications and study resources.</p>
+                            <a href="https://mahmoudtaru.github.io/Mahmoud-s-learning-space/" class="project-button" target="_blank" rel="noopener noreferrer">View Project</a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+
+            <!-- 6. قسم المهارات (Skills) -->
+            <section id="skills">
+                <h2>Skills</h2>
+                <div class="skills-grid">
+                    
+                    <div class="skill-category">
+                        <h3>Content & Branding</h3>
+                        <div class="skill-bar-wrapper">
+                            <p>Scriptwriting & Storytelling</p>
+                            <div class="skill-bar"><div class="skill-bar-inner" data-level="90"></div></div>
+                        </div>
+                        <div class="skill-bar-wrapper">
+                            <p>Medical Content Creation</p>
+                            <div class="skill-bar"><div class="skill-bar-inner" data-level="95"></div></div>
+                        </div>
+                        <div class="skill-bar-wrapper">
+                            <p>Campaign Planning</p>
+                            <div class="skill-bar"><div class="skill-bar-inner" data-level="80"></div></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Design & AI Tools</h3>
+                        <div class="skill-bar-wrapper">
+                            <p>Design (Canva, CapCut, Figma)</p>
+                            <div class="skill-bar"><div class="skill-bar-inner" data-level="90"></div></div>
+                        </div>
+                        <div class="skill-bar-wrapper">
+                            <p>AI Tools (Midjourney, Runway, Veo3)</p>
+                            <div class="skill-bar"><div class="skill-bar-inner" data-level="85"></div></div>
+                        </div>
+                        <div class="skill-bar-wrapper">
+                            <p>AI Workflows & Automation</p>
+                            <div class="skill-bar"><div class="skill-bar-inner" data-level="80"></div></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Marketing</h3>
+                        <div class="skill-bar-wrapper">
+                            <p>Facebook Ads Funnels</p>
+                            <div class="skill-bar"><div class="skill-bar-inner" data-level="85"></div></div>
+                        </div>
+                        <div class="skill-bar-wrapper">
+                            <p>Brand Positioning</p>
+                            <div class="skill-bar"><div class="skill-bar-inner" data-level="80"></div></div>
+                        </div>
+                        <div class="skill-bar-wrapper">
+                            <p>Performance Optimization</p>
+                            <div class="skill-bar"><div class="skill-bar-inner" data-level="75"></div></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Languages</h3>
+                        <div class="skill-bar-wrapper">
+                            <p>Arabic (Native)</p>
+                            <div class="skill-bar"><div class="skill-bar-inner" data-level="100"></div></div>
+                        </div>
+                        <div class="skill-bar-wrapper">
+                            <p>English (Fluent)</p>
+                            <div class="skill-bar"><div class="skill-bar-inner" data-level="90"></div></div>
+                        </div>
+                        <div class="skill-bar-wrapper">
+                            <p>Spanish (Basic)</p>
+                            <div class="skill-bar"><div class="skill-bar-inner" data-level="30"></div></div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 7. قسم الاتصال (Contact) -->
+            <section id="contact">
+                <div class="hero-intro">What's Next?</div>
+                <h2>Get In Touch</h2>
+                <p>
+                    I'm currently open to new opportunities and collaborations. Whether you have a question or just want to say hi, feel free to reach out!
+                </p>
+                <a href="https://linktr.ee/Mahmoud_harb18" class="cta-button" target="_blank" rel="noopener noreferrer">Say Hello (Linktree)</a>
+                
+                <div class="contact-social-icons no-print">
+                    <a href="https://api.whatsapp.com/send?phone=201157487804" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=100009507650140" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mahmoud-harb-ui1808ux/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </a>
+                </div>
+
+                <!-- تم إضافة الإيميل هنا وتعديل المسافة العلوية -->
+                <p style="margin-top: 1rem;">
+                    <a href="mailto:mahmoud18harb08@gmail.com" class="contact-email-link">mahmoud18harb08@gmail.com</a>
+                </p>
+
+                <!-- تم تعديل المارجن هنا -->
+                <p style="margin-top: 0.5rem; font-family: var(--font-mono); font-size: 0.9rem;">
+                    Phone: (+20) 01157487804
+                </p>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <div>Built by Mood & Mahmoud Harb Hussien</div>
+        <div>Design inspired by modern developer portfolios.</div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // 1. تأثير الكتابة (Typing Effect)
+            const typingElement = document.getElementById('typing-effect');
+            // تم تحديث الألقاب بناء على طلبك
+            const words = ["Dentist.", "Medical/Dental Content creator.", "Ai Instructor."];
+            let wordIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+
+            function type() {
+                const currentWord = words[wordIndex];
+                let displayText = '';
+
+                if (isDeleting) {
+                    displayText = currentWord.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    displayText = currentWord.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+
+                typingElement.textContent = displayText;
+
+                let typeSpeed = isDeleting ? 100 : 200;
+
+                if (!isDeleting && charIndex === currentWord.length) {
+                    typeSpeed = 2000; // وقت الانتظار بعد اكتمال الكلمة
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                    typeSpeed = 500; // وقت الانتظار قبل الكلمة التالية
+                }
+
+                setTimeout(type, typeSpeed);
+            }
+            // التأكد من وجود العنصر قبل بدء التأثير
+            if (typingElement) {
+                type();
+            }
+
+            
+            // 2. تأثير الظهور عند التمرير (Scroll Reveal)
+            const sections = document.querySelectorAll('section');
+            const skillBars = document.querySelectorAll('.skill-bar-inner');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const sectionObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        
+                        // تشغيل أنيميشن المهارات
+                        if (entry.target.id === 'skills') {
+                            skillBars.forEach(bar => {
+                                const level = bar.getAttribute('data-level');
+                                bar.style.width = level + '%';
+                            });
+                        }
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                sectionObserver.observe(section);
+            });
+            
+
+            // 3. قائمة الموبايل (Mobile Nav Toggle)
+            const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+            const navList = document.getElementById('nav-list');
+            
+            // التأكد من وجود العناصر
+            if (mobileNavToggle && navList) {
+                const navLinks = navList.querySelectorAll('a');
+
+                mobileNavToggle.addEventListener('click', () => {
+                    navList.classList.toggle('is-active');
+                    mobileNavToggle.classList.toggle('is-active');
+                });
+                
+                // إغلاق القائمة عند الضغط على رابط
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        navList.classList.remove('is-active');
+                        mobileNavToggle.classList.remove('is-active');
+                    });
+                });
+            }
+
+            // 4. إخفاء الهيدر عند التمرير للأسفل
+            let lastScrollTop = 0;
+            const header = document.getElementById('header');
+            const headerHeight = 80; // القيمة الثابتة بدلاً من المتغير
+
+            if(header) {
+                window.addEventListener('scroll', () => {
+                    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    
+                    if (scrollTop > lastScrollTop && scrollTop > headerHeight) { 
+                        header.style.top = `-${headerHeight}px`; // إخفاء الهيدر
+                    } else {
+                        header.style.top = "0"; // إظهار الهيدر
+                    }
+                    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+                });
+            }
+
+        });
+    </script>
+
+</body>
+</html>
