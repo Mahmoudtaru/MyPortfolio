@@ -3,12 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahmoud Harb Hussien - Dentist | Medical Content Creator | Ai Instructor</title>
+    <title>Mahmoud Harb Hussien - GenAI Instructor | Medical Content Specialist</title>
 
     <!-- جلب الخطوط من جوجل -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet"> <!-- خط عربي للكابشن -->
 
     <!-- JSON-LD Schema for SEO -->
     <script type="application/ld+json">
@@ -17,10 +18,10 @@
       "@type": "Person",
       "name": "Mahmoud Harb Hussien",
       "url": "",
-      "jobTitle": "Dentist | Medical/Dental Content creator | Ai Instructor",
+      "jobTitle": "Dentist | GenAI Instructor | Medical Content Specialist",
       "worksFor": {
         "@type": "Organization",
-        "name": "Freelance"
+        "name": "Shiny White Dental Centers / Shiny Pharma / Smarter With AI"
       },
       "address": {
         "@type": "PostalAddress",
@@ -43,6 +44,7 @@
             --card-bg: #112240;
             --font-primary: 'Inter', sans-serif;
             --font-mono: 'Fira Code', monospace;
+            --font-arabic: 'Cairo', sans-serif;
             --max-width: 1100px;
             --border-radius: 4px;
             --header-height: 80px;
@@ -177,6 +179,11 @@
         ul {
             list-style: none;
         }
+        
+        .highlight-text {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
 
         /* 4. الهيدر (Header) والتنقل */
         .header {
@@ -228,7 +235,7 @@
         }
         
         .mobile-nav-toggle {
-            display: none; /* مخفي على الديسكتوب */
+            display: none;
             z-index: 101;
         }
 
@@ -275,7 +282,7 @@
         }
 
         .hero-summary {
-            max-width: 600px;
+            max-width: 650px;
             color: var(--text-secondary);
             margin-bottom: 2rem;
         }
@@ -310,7 +317,7 @@
         }
         
         .timeline-item:last-child::before {
-            height: 3.5rem; /* يوقف الخط عند النقطة */
+            height: 3.5rem;
         }
 
         .timeline-dot {
@@ -337,13 +344,13 @@
             font-size: 1.25rem;
             font-weight: 500;
             color: var(--text-primary);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.2rem;
         }
 
         .timeline-org {
             font-size: 1rem;
             font-weight: 500;
-            color: var(--text-secondary);
+            color: var(--accent-color); 
             margin-bottom: 1rem;
         }
 
@@ -388,8 +395,8 @@
         .project-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
+            align-items: flex-start;
+            margin-bottom: 1rem;
         }
         
         .project-icon {
@@ -398,33 +405,54 @@
             height: 40px;
         }
         
-        .project-links a {
-            color: var(--text-secondary);
-            margin-left: 1rem;
-        }
-        .project-links a:hover {
+        .view-badge {
+            background-color: rgba(100, 255, 218, 0.1);
             color: var(--accent-color);
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-family: var(--font-mono);
+            font-weight: bold;
         }
 
         .project-title {
             font-size: 1.25rem;
             margin-bottom: 0.5rem;
         }
-        .project-title a:hover {
-            text-decoration: none;
+        
+        .project-role {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            font-family: var(--font-mono);
+            margin-bottom: 1rem;
         }
         
         .project-desc {
             font-size: 0.95rem;
             color: var(--text-secondary);
             flex-grow: 1;
-            /* تم الإضافة: لتوسيط الزر والنص */
+        }
+
+        .arabic-caption {
+            font-family: var(--font-arabic);
+            direction: rtl;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px;
+            border-radius: 4px;
+            border-right: 2px solid var(--accent-color);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            margin-top: 10px;
+            color: #a8b2d1;
+        }
+
+        .project-footer {
+            margin-top: 1.5rem;
             text-align: center;
         }
 
         .project-button {
             display: inline-block;
-            margin-top: 1rem;
             font-family: var(--font-mono);
             font-size: 0.8rem;
             color: var(--accent-color);
@@ -480,7 +508,7 @@
         
         .skill-bar-inner {
             height: 100%;
-            width: 0; /* يبدأ من الصفر */
+            width: 0;
             background-color: var(--accent-color);
             transition: width 1.5s ease-in-out;
         }
@@ -504,7 +532,7 @@
         }
         
         #contact h2::after {
-            display: none; /* إخفاء الخط */
+            display: none;
         }
 
         #contact p {
@@ -701,7 +729,6 @@
             .bar.middle { top: 50%; transform: translateY(-50%); }
             .bar.bottom { bottom: 0; }
 
-            /* أنيميشن زر الموبايل (X) */
             .is-active .bar.top {
                 transform: rotate(45deg);
                 top: 9px;
@@ -743,13 +770,11 @@
             <ul class="nav-list" id="nav-list">
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
-                <!-- تم الإضافة -->
                 <li><a href="#education">Education</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li>
-                    <!-- تم التحديث: رابط تحميل السيرة الذاتية -->
                     <a href="https://drive.google.com/file/d/1Oeva_GAmVzWQJiZHVSsHnnYrRE-902jz/view?usp=sharing" class="cta-button" target="_blank" rel="noopener noreferrer">Download CV</a>
                 </li>
             </ul>
@@ -758,7 +783,6 @@
 
     <!-- روابط السوشيال الجانبية (للديسكتوب) -->
     <div class="social-links no-print">
-        <!-- تم التحديث: رابط Linktree -->
         <a href="https://linktr.ee/Mahmoud_harb18" aria-label="Linktree" target="_blank" rel="noopener noreferrer">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"></path>
@@ -767,19 +791,15 @@
                 <path d="M15 12h-5"></path>
             </svg>
         </a>
-        <!-- تم الإضافة: رابط بورتفوليو الأسنان -->
         <a href="https://drive.google.com/file/d/1MRqJChmmV-jtYfQCJU__QzuRZxTjlv13/view?usp=sharing" aria-label="Dental Portfolio" target="_blank" rel="noopener noreferrer">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
         </a>
-        <!-- تم الإضافة: رابط LinkedIn -->
         <a href="https://www.linkedin.com/in/mahmoud-harb-ui1808ux/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
         </a>
-        <!-- تم الإضافة: رابط Facebook -->
         <a href="https://www.facebook.com/profile.php?id=100009507650140" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
         </a>
-        <!-- تم الإضافة: رابط WhatsApp -->
         <a href="https://api.whatsapp.com/send?phone=201157487804" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
         </a>
@@ -809,7 +829,7 @@
                     <span class="typing-cursor"></span>
                 </h2>
                 <p class="hero-summary">
-                    I'm a Dentist and AI-based medical content strategist based in Cairo, specializing in creative marketing, branding, and digital education for the healthcare sector.
+                    I'm a dentist with a strong passion for Generative AI, medical education, and digital content creation. I work at the intersection of dentistry, AI, and storytelling, helping simplify complex medical concepts into clear, engaging, and practical content.
                 </p>
                 <div>
                     <a href="#contact" class="cta-button">Get In Touch</a>
@@ -819,15 +839,11 @@
             <!-- 3. قسم "عني" (About) -->
             <section id="about">
                 <h2>About Me</h2>
-                <!-- ملاحظة: البيانات ناقصة هنا: الصورة الشخصية -->
                 <p>
-                    A Dentist and Al-based medical content strategist specializing in creative marketing,
-                    branding, and digital education solutions for the healthcare sector.
+                    As the founder of "Smarter With AI," I teach the real-world applications of Generative AI in healthcare and education. Concurrently, as a Medical Content Creator, I leverage AI-assisted research and virtual AI avatars to produce highly accurate digital education solutions for leading dental organizations.
                 </p>
                 <p>
-                    Experienced in leveraging Al tools to produce high-impact content, including video advertisements,
-                    brand visuals, application prototypes, and automated communication systems. Founder
-                    of multiple Al-powered learning projects for dentists and medical professionals.
+                    I work at the intersection of dentistry, AI, and storytelling, helping simplify complex medical concepts into clear, engaging, and practical content.
                 </p>
             </section>
 
@@ -835,75 +851,70 @@
             <section id="experience">
                 <h2>Experience</h2>
                 <div class="timeline">
+
+                    <!-- الخبرة الجديدة: Shiny Pharma -->
+                    <div class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-date">May 2026 - Present</div>
+                        <h3 class="timeline-title">AI Ads Creator</h3>
+                        <h4 class="timeline-org">Shiny Pharma</h4>
+                        <ul class="timeline-bullets">
+                            <li>Create and design AI-generated advertisements for pharmaceutical products.</li>
+                            <li>Develop high-quality visual content and promotional material using advanced Generative AI tools.</li>
+                        </ul>
+                    </div>
                     
-                    <!-- الترتيب الجديد: 1. Content Creator -->
+                    <!-- تحديث الخبرة: Shiny White -->
+                    <div class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-date">Nov 2025 - Present</div>
+                        <h3 class="timeline-title">Medical Content Creator & GenAI Specialist</h3>
+                        <h4 class="timeline-org">Shiny White Dental Centers | Cairo, Egypt</h4>
+                        <ul class="timeline-bullets">
+                            <li>Achieved over <span class="highlight-text">80 million views</span> across social media platforms through viral medical content.</li>
+                            <li>Write engaging scripts and video captions to simplify complex clinical concepts for the general public.</li>
+                            <li>Create custom <span class="highlight-text">AI Inserts</span> integrated into videos to visually explain dental procedures and enhance viewer understanding.</li>
+                            <li>Develop virtual dentist avatars and utilize Generative AI tools for content research and production.</li>
+                        </ul>
+                    </div>
+
+                    <!-- الخبرة: Smarter With AI -->
+                    <div class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-date">Jun 2025 - Present</div>
+                        <h3 class="timeline-title">Founder & GenAI Instructor</h3>
+                        <h4 class="timeline-org">Smarter With AI | Remote</h4>
+                        <ul class="timeline-bullets">
+                            <li>Deliver a practical Generative AI training program designed to help professionals apply GenAI in their daily workflows.</li>
+                            <li>Design and teach a comprehensive Arabic curriculum covering prompt engineering, AI-powered content creation, and productivity.</li>
+                            <li>Prepare, deliver, and continuously update live online sessions and course materials based on learner feedback.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- الخبرة: Freelance -->
                     <div class="timeline-item">
                         <span class="timeline-dot"></span>
                         <div class="timeline-date">2023 - Present</div>
-                        <h3 class="timeline-title">Freelance Al Content Creator & Designer</h3>
+                        <h3 class="timeline-title">Freelance AI Content Creator & Designer</h3>
+                        <h4 class="timeline-org">Freelance</h4>
                         <ul class="timeline-bullets">
-                            <li>Produce medical advertisements using advanced Al tools (Veo3, CGI, motion graphics, avatars).</li>
-                            <li>Develop comprehensive brand identities and visual systems for medical clinics and doctors.</li>
-                            <li>Build content strategies and messaging tailored for social media & landing pages.</li>
-                            <li>Create short-form educational video content and visual case simplifications.</li>
-                        </ul>
-                    </div>
-
-                    <!-- الترتيب الجديد: 2. AI Instructor -->
-                    <div class="timeline-item">
-                        <span class="timeline-dot"></span>
-                        <div class="timeline-date">August 2025 - Present</div>
-                        <h3 class="timeline-title">AI Instructor (Smarter With AI)</h3>
-                        <ul class="timeline-bullets">
-                            <li>Teaching students how to leverage AI in their work, study, and daily life.</li>
-                            <li>Training includes prompt engineering, designing images, presentations, videos, websites, and applications.</li>
-                        </ul>
-                    </div>
-                    
-                    <!-- الترتيب الجديد: 3. AI Trainer -->
-                    <div class="timeline-item">
-                        <span class="timeline-dot"></span>
-                        <div class="timeline-date">January 2024 - February 2025</div>
-                        <h3 class="timeline-title">AI Trainer (Language Models)</h3>
-                        <ul class="timeline-bullets">
-                            <li>Responsible for evaluating, testing, and training large language models (LLMs) to improve their performance and accuracy.</li>
-                        </ul>
-                    </div>
-
-                    <!-- الترتيب الجديد: 4. Media Buyer -->
-                    <div class="timeline-item">
-                        <span class="timeline-dot"></span>
-                        <div class="timeline-date">2025 - Present</div>
-                        <h3 class="timeline-title">Media Buyer - Facebook Ads</h3>
-                        <ul class="timeline-bullets">
-                            <li>Plan and optimize paid advertising campaigns for medical services.</li>
-                            <li>Develop high-conversion ad creatives and effective audience targeting strategies.</li>
-                        </ul>
-                    </div>
-
-                    <!-- الترتيب الجديد: 5. Digital Dentistry (الأخيرة) -->
-                    <div class="timeline-item">
-                        <span class="timeline-dot"></span>
-                        <div class="timeline-date">2025 - Present</div>
-                        <h3 class="timeline-title">Digital Dentistry Intern</h3>
-                        <h4 class="timeline-org">Everst Dental Lab</h4>
-                        <ul class="timeline-bullets">
-                            <li>Execute CAD/CAM workflows and design dental prosthetics using Exocad.</li>
+                            <li>Produce medical content, branding visuals, and social media campaigns utilizing advanced AI tools (images, avatars, videos).</li>
+                            <li>Develop content strategies, messaging, and creative ideas for healthcare professionals and medical campaigns.</li>
                         </ul>
                     </div>
                     
                 </div>
             </section>
 
-            <!-- 5. قسم التعليم والشهادات (جديد) -->
+            <!-- 5. قسم التعليم والشهادات (Education) -->
             <section id="education">
                 <h2>Education & Certs</h2>
                 <div class="timeline">
                     <!-- التعليم -->
                     <div class="timeline-item">
                         <span class="timeline-dot"></span>
-                        <div class="timeline-date">2017-2022</div>
-                        <h3 class="timeline-title">Bachelor of Dental Surgery</h3>
+                        <div class="timeline-date">2017 - 2022</div>
+                        <h3 class="timeline-title">Bachelor's in Dental Surgery</h3>
                         <h4 class="timeline-org">Minya University</h4>
                     </div>
                     <!-- الشهادات -->
@@ -911,131 +922,181 @@
                         <span class="timeline-dot"></span>
                         <h3 class="timeline-title">Certificates & Training</h3>
                         <ul class="timeline-bullets" style="margin-top: 1rem;">
-                            <!-- بيانات من السيرة الذاتية الأخيرة -->
-                            <li>Al Smart Man (2025) - Branding, Content Strategy, Al Tools, Automation.</li>
-                            <li>Content 101- On Track (2025)</li>
-                            <li>Al for Content Creation - On Track (2025)</li>
-                            <li>The Digital Marketing Guide - Online Workshop (2025)</li>
-                            <li>Al Career Essentials - ALX (2024)</li>
-                            <li>Media Buying - Facebook Ads (2024)</li>
-                            <li>UX Nanodegree - Udacity (2022)</li>
-                            <li>Foundations of UX Design - Google (2022)</li>
-                            <li>Digital Dentistry Internship - Everst Dental Lab (2025)</li>
+                            <li>AI Smart Man (2025): Branding, Content Strategy, AI Tools, Automation.</li>
+                            <li>Content 101: On Track (2025).</li>
+                            <li>AI for Content Creation: On Track (2025).</li>
+                            <li>The Digital Marketing Guide: Online Workshop (2025).</li>
+                            <li>AI Career Essentials: ALX (2024).</li>
+                            <li>Media Buying (Facebook Ads): (2024).</li>
                         </ul>
                     </div>
                 </div>
             </section>
 
-            <!-- 6. قسم المشاريع (Projects) - تم تغيير ترقيمه -->
+            <!-- 6. قسم المشاريع (Projects) -->
             <section id="projects">
-                <h2>Projects</h2>
+                <h2>Projects & Viral Content</h2>
                 <div class="projects-grid">
 
+                    <!-- مشروع: Shiny Pharma AI Ads -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <svg class="project-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        </div>
+                        <h3 class="project-title">Shiny Pharma AI Ads</h3>
+                        <div class="project-role">AI Ad Creator</div>
+                        <div class="project-desc">
+                            <p>A collection of AI-generated commercial advertisements created for Shiny Pharma products to enhance brand visibility.</p>
+                        </div>
+                        <div class="project-footer">
+                            <a href="https://drive.google.com/drive/folders/1ZJujZo2g473f6RY53t7mGYjmjzGdkk7b?usp=sharing" class="project-button" target="_blank" rel="noopener noreferrer">View Portfolio</a>
+                        </div>
+                    </div>
+
+                    <!-- فيديو 1: عسر الهضم -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <svg class="project-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                            <span class="view-badge">1M+ Views</span>
+                        </div>
+                        <h3 class="project-title">Indigestion & Dental Health</h3>
+                        <div class="project-role">Script • Caption • AI Inserts</div>
+                        <div class="project-desc">
+                            <p>A viral reel explaining the deep connection between missing teeth, harmful bacteria, and chronic stomach issues.</p>
+                            <div class="arabic-caption">
+                                "عسر الهضم، الغازات المستمرة، وحتى جرثومة المعدة.. كلها مشاكل بتبدأ من الفم بسبب البكتيريا، أو فقدان الضروس الخلفية..."
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="https://www.instagram.com/reel/DXEr2qzim_1/" class="project-button" target="_blank" rel="noopener noreferrer">Watch Reel</a>
+                        </div>
+                    </div>
+
+                    <!-- فيديو 2: البنج الكلي 4 مليون -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <svg class="project-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                            <span class="view-badge">4M+ Views</span>
+                        </div>
+                        <h3 class="project-title">One-Day Smile Transformation</h3>
+                        <div class="project-role">Script • Caption • AI Inserts</div>
+                        <div class="project-desc">
+                            <p>Promotional content for the 'Hello Shine' package, showcasing full-mouth rehabilitation under general anesthesia without pain.</p>
+                            <div class="arabic-caption">
+                                "ليه تستحمل شكل أسنان مضايقك، لما الحل الجذري ممكن يخلص في يومين وبدون ألم؟"
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="https://www.instagram.com/reel/DWaA8cOj7bJ/" class="project-button" target="_blank" rel="noopener noreferrer">Watch Reel</a>
+                        </div>
+                    </div>
+
+                    <!-- فيديو 3: التغلب على الخوف 3 مليون -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <svg class="project-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                            <span class="view-badge">3M+ Views</span>
+                        </div>
+                        <h3 class="project-title">Overcoming Dental Phobia</h3>
+                        <div class="project-role">Script • Caption • AI Inserts</div>
+                        <div class="project-desc">
+                            <p>A highly engaging video addressing the common fears of dental pain and offering a safe, one-visit solution.</p>
+                            <div class="arabic-caption">
+                                "إزاي خلينا أكتر حاجتين بتخاف منهم في علاج أسنانك.. هما سر راحتك؟ وجع دكتور الأسنان ورهبة البنج..."
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="https://www.instagram.com/reel/DWaA8cOj7bJ/" class="project-button" target="_blank" rel="noopener noreferrer">Watch Reel</a>
+                        </div>
+                    </div>
+
+                    <!-- المشروع: Smarter With AI Course -->
                     <div class="project-card">
                         <div class="project-header">
                             <svg class="project-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a.5.5 0 0 0 0-.856L12 6.303l-6.16 3.422a.5.5 0 0 0 0 .856L12 14z"></path><path d="M12 21l-9-5 9-5 9 5-9 5z"></path></svg>
-                             <div class="project-links">
-                            </div>
                         </div>
-                        <h3 class="project-title">Smarter With Al - Training Program</h3>
+                        <h3 class="project-title">Smarter With AI (General Course)</h3>
+                        <div class="project-role">Educational Program</div>
                         <div class="project-desc">
-                            <p>Al learning track for students & professionals.</p>
+                            <p>An educational course to help beginners understand and use AI tools in their studies, work, and daily tasks.</p>
+                        </div>
+                        <div class="project-footer">
                             <a href="https://mahmoudtaru.github.io/Smarter-With-Ai-course/" class="project-button" target="_blank" rel="noopener noreferrer">View Project</a>
                         </div>
                     </div>
                     
+                    <!-- المشروع: Smarter Dentists -->
                     <div class="project-card">
                         <div class="project-header">
                             <svg class="project-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
-                             <div class="project-links">
-                            </div>
                         </div>
-                        <h3 class="project-title">Smarter Dentists With Al App</h3>
+                        <h3 class="project-title">Smarter with AI for Dentists</h3>
+                        <div class="project-role">Course & App</div>
                         <div class="project-desc">
-                            <p>Al-powered learning & productivity app for dentists.</p>
+                            <p>An online course and content series that helps dentists use AI tools in daily workflow, marketing, and patient communication.</p>
+                        </div>
+                        <div class="project-footer">
                             <a href="https://mahmoudtaru.github.io/Smarter-Dentists-With-Ai" class="project-button" target="_blank" rel="noopener noreferrer">View Project</a>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-header">
-                            <svg class="project-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path><path d="M8.5 16.5a1.5 1.5 0 0 0 0 3"></path><path d="M15.5 16.5a1.5 1.5 0 0 1 0 3"></path><path d="M8 14s1.5-2 4-2 4 2 4 2"></path><path d="M9 9h.01"></path><path d="M15 9h.01"></path></svg>
-                             <div class="project-links">
-                            </div>
-                        </div>
-                        <h3 class="project-title">Holy Quran Radio</h3>
-                        <div class="project-desc">
-                            <p>A minimal app that streams Quran radio instantly.</p>
-                            <a href="https://mahmoudtaru.github.io/holyquranradio" class="project-button" target="_blank" rel="noopener noreferrer">View Project</a>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-header">
-                            <svg class="project-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v15H6.5A2.5 2.5 0 0 1 4 14.5V4.5A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-                             <div class="project-links">
-                            </div>
-                        </div>
-                        <h3 class="project-title">Mahmoud's Learning Space</h3>
-                        <div class="project-desc">
-                            <p>A hub for visual dental simplifications and study resources.</p>
-                            <a href="https://mahmoudtaru.github.io/Mahmoud-s-learning-space/" class="project-button" target="_blank" rel="noopener noreferrer">View Project</a>
                         </div>
                     </div>
                     
                 </div>
             </section>
 
-            <!-- 6. قسم المهارات (Skills) -->
+            <!-- 7. قسم المهارات (Skills) -->
             <section id="skills">
                 <h2>Skills</h2>
                 <div class="skills-grid">
                     
                     <div class="skill-category">
-                        <h3>Content & Branding</h3>
+                        <h3>Generative AI & Tech</h3>
                         <div class="skill-bar-wrapper">
-                            <p>Scriptwriting & Storytelling</p>
+                            <p>Prompt Engineering</p>
+                            <div class="skill-bar"><div class="skill-bar-inner" data-level="95"></div></div>
+                        </div>
+                        <div class="skill-bar-wrapper">
+                            <p>AI Content Creation</p>
                             <div class="skill-bar"><div class="skill-bar-inner" data-level="90"></div></div>
                         </div>
+                        <div class="skill-bar-wrapper">
+                            <p>Avatar Video Workflows</p>
+                            <div class="skill-bar"><div class="skill-bar-inner" data-level="85"></div></div>
+                        </div>
+                        <div class="skill-bar-wrapper">
+                            <p>Content Automation Systems</p>
+                            <div class="skill-bar"><div class="skill-bar-inner" data-level="80"></div></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Content & Medical Marketing</h3>
                         <div class="skill-bar-wrapper">
                             <p>Medical Content Creation</p>
                             <div class="skill-bar"><div class="skill-bar-inner" data-level="95"></div></div>
                         </div>
                         <div class="skill-bar-wrapper">
-                            <p>Campaign Planning</p>
-                            <div class="skill-bar"><div class="skill-bar-inner" data-level="80"></div></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Design & AI Tools</h3>
-                        <div class="skill-bar-wrapper">
-                            <p>Design (Canva, CapCut, Figma)</p>
+                            <p>Scriptwriting & Storytelling</p>
                             <div class="skill-bar"><div class="skill-bar-inner" data-level="90"></div></div>
                         </div>
                         <div class="skill-bar-wrapper">
-                            <p>AI Tools (Midjourney, Runway, Veo3)</p>
+                            <p>Campaign Planning</p>
                             <div class="skill-bar"><div class="skill-bar-inner" data-level="85"></div></div>
                         </div>
                         <div class="skill-bar-wrapper">
-                            <p>AI Workflows & Automation</p>
+                            <p>Facebook Ads Funnels</p>
                             <div class="skill-bar"><div class="skill-bar-inner" data-level="80"></div></div>
                         </div>
                     </div>
                     
                     <div class="skill-category">
-                        <h3>Marketing</h3>
+                        <h3>Design Tools</h3>
                         <div class="skill-bar-wrapper">
-                            <p>Facebook Ads Funnels</p>
+                            <p>Canva, CapCut</p>
+                            <div class="skill-bar"><div class="skill-bar-inner" data-level="95"></div></div>
+                        </div>
+                        <div class="skill-bar-wrapper">
+                            <p>Runway, Midjourney, Veo3</p>
                             <div class="skill-bar"><div class="skill-bar-inner" data-level="85"></div></div>
-                        </div>
-                        <div class="skill-bar-wrapper">
-                            <p>Brand Positioning</p>
-                            <div class="skill-bar"><div class="skill-bar-inner" data-level="80"></div></div>
-                        </div>
-                        <div class="skill-bar-wrapper">
-                            <p>Performance Optimization</p>
-                            <div class="skill-bar"><div class="skill-bar-inner" data-level="75"></div></div>
                         </div>
                     </div>
                     
@@ -1058,7 +1119,7 @@
                 </div>
             </section>
 
-            <!-- 7. قسم الاتصال (Contact) -->
+            <!-- 8. قسم الاتصال (Contact) -->
             <section id="contact">
                 <div class="hero-intro">What's Next?</div>
                 <h2>Get In Touch</h2>
@@ -1079,12 +1140,10 @@
                     </a>
                 </div>
 
-                <!-- تم إضافة الإيميل هنا وتعديل المسافة العلوية -->
                 <p style="margin-top: 1rem;">
                     <a href="mailto:mahmoud18harb08@gmail.com" class="contact-email-link">mahmoud18harb08@gmail.com</a>
                 </p>
 
-                <!-- تم تعديل المارجن هنا -->
                 <p style="margin-top: 0.5rem; font-family: var(--font-mono); font-size: 0.9rem;">
                     Phone: (+20) 01157487804
                 </p>
@@ -1103,8 +1162,7 @@
 
             // 1. تأثير الكتابة (Typing Effect)
             const typingElement = document.getElementById('typing-effect');
-            // تم تحديث الألقاب بناء على طلبك
-            const words = ["Dentist.", "Medical/Dental Content creator.", "Ai Instructor."];
+            const words = ["Dentist.", "GenAI Instructor.", "Medical Content Specialist."];
             let wordIndex = 0;
             let charIndex = 0;
             let isDeleting = false;
@@ -1126,17 +1184,16 @@
                 let typeSpeed = isDeleting ? 100 : 200;
 
                 if (!isDeleting && charIndex === currentWord.length) {
-                    typeSpeed = 2000; // وقت الانتظار بعد اكتمال الكلمة
+                    typeSpeed = 2000;
                     isDeleting = true;
                 } else if (isDeleting && charIndex === 0) {
                     isDeleting = false;
                     wordIndex = (wordIndex + 1) % words.length;
-                    typeSpeed = 500; // وقت الانتظار قبل الكلمة التالية
+                    typeSpeed = 500;
                 }
 
                 setTimeout(type, typeSpeed);
             }
-            // التأكد من وجود العنصر قبل بدء التأثير
             if (typingElement) {
                 type();
             }
@@ -1157,7 +1214,6 @@
                     if (entry.isIntersecting) {
                         entry.target.classList.add('is-visible');
                         
-                        // تشغيل أنيميشن المهارات
                         if (entry.target.id === 'skills') {
                             skillBars.forEach(bar => {
                                 const level = bar.getAttribute('data-level');
@@ -1179,7 +1235,6 @@
             const mobileNavToggle = document.getElementById('mobile-nav-toggle');
             const navList = document.getElementById('nav-list');
             
-            // التأكد من وجود العناصر
             if (mobileNavToggle && navList) {
                 const navLinks = navList.querySelectorAll('a');
 
@@ -1188,7 +1243,6 @@
                     mobileNavToggle.classList.toggle('is-active');
                 });
                 
-                // إغلاق القائمة عند الضغط على رابط
                 navLinks.forEach(link => {
                     link.addEventListener('click', () => {
                         navList.classList.remove('is-active');
@@ -1200,16 +1254,16 @@
             // 4. إخفاء الهيدر عند التمرير للأسفل
             let lastScrollTop = 0;
             const header = document.getElementById('header');
-            const headerHeight = 80; // القيمة الثابتة بدلاً من المتغير
+            const headerHeight = 80;
 
             if(header) {
                 window.addEventListener('scroll', () => {
                     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                     
                     if (scrollTop > lastScrollTop && scrollTop > headerHeight) { 
-                        header.style.top = `-${headerHeight}px`; // إخفاء الهيدر
+                        header.style.top = `-${headerHeight}px`;
                     } else {
-                        header.style.top = "0"; // إظهار الهيدر
+                        header.style.top = "0";
                     }
                     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
                 });
