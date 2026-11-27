@@ -88,14 +88,14 @@
       if (firstFocusable) firstFocusable.focus();
     };
 
-    const closeDrawer = () => {
+    const closeDrawer = (restoreFocus = true) => {
       drawer.classList.remove('is-open');
       drawer.inert = true;
       backdrop.classList.remove('is-open');
       drawer.setAttribute('aria-hidden', 'true');
       toggleBtn.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
-      if (lastFocused && typeof lastFocused.focus === 'function') {
+      if (restoreFocus !== false && lastFocused && typeof lastFocused.focus === 'function') {
         lastFocused.focus();
       }
     };
@@ -110,7 +110,7 @@
     backdrop.addEventListener('click', closeDrawer);
 
     drawer.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener('click', closeDrawer);
+      anchor.addEventListener('click', () => { closeDrawer(false); const target = document.getElementById(anchor.hash.slice(1)); if (target) { target.setAttribute('tabindex','-1'); requestAnimationFrame(() => target.focus({preventScroll:true})); } });
     });
 
     document.addEventListener('keydown', (event) => {
@@ -197,7 +197,7 @@
   // 6. Reading progress and active chapter.
   const progress = document.querySelector('.reading-progress span');
   const sections = [...document.querySelectorAll('main > section[id]')];
-  const nav = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+  const nav = [...document.querySelectorAll('.nav-links a[href^="#"], .mobile-drawer__links a[href^="#"]')];
   let scheduled = false;
   function onScroll(){
     scheduled=false;
@@ -205,9 +205,10 @@
     if(progress) progress.style.transform=`scaleX(${total>0?Math.min(1,y/total):0})`;
     let current='';
     for(const section of sections) if(section.getBoundingClientRect().top<=window.innerHeight*.36) current=section.id;
+    if (y+window.innerHeight>=document.documentElement.scrollHeight-10) current='contact';
     for(const a of nav){const active=a.hash===`#${current}`;a.classList.toggle('is-current',active);if(active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');}
   }
   window.addEventListener('scroll',()=>{if(!scheduled){scheduled=true;requestAnimationFrame(onScroll)}},{passive:true});
-  window.addEventListener('resize',onScroll,{passive:true});
+  window.addEventListener('resize',()=>{if(innerWidth>980 && drawer && drawer.classList.contains('is-open')) { if(closeBtn) closeBtn.click(); } onScroll();},{passive:true});
   onScroll();
 })();
