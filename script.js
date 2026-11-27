@@ -157,36 +157,57 @@
     });
   }
 
-  // 5. Progressive-Enhancement Scroll Reveal (respects prefers-reduced-motion)
-  const prefersReduced =
-    window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (!prefersReduced && 'IntersectionObserver' in window) {
-    const revealEls = document.querySelectorAll('.reveal');
-    if (revealEls.length) {
-      document.documentElement.classList.add('js-reveal');
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.08, rootMargin: '0px 0px -24px 0px' }
-      );
-      revealEls.forEach((el) => observer.observe(el));
-
-      // Safety fallback: ensure nothing stays hidden if observer misses
-      window.setTimeout(() => {
-        revealEls.forEach((el) => {
-          const rect = el.getBoundingClientRect();
-          if (rect.top < window.innerHeight + 120) {
-            el.classList.add('is-visible');
+  // 5. Editorial motion. Content remains readable even without JavaScript.
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const root = document.documentElement;
+  if (!reduced) {
+    root.classList.add('motion-ready');
+    document.querySelectorAll('.hero-content > *').forEach((el,i) => el.style.setProperty('--intro-order',i));
+    if ('IntersectionObserver' in window) {
+      const reveal = new IntersectionObserver(entries => {
+        for (const entry of entries) if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          reveal.unobserve(entry.target);
+        }
+      }, {threshold:0.1});
+      document.querySelectorAll('.reveal').forEach((el,i)=>{
+        el.style.setProperty('--reveal-delay', `${(i % 4) * 55}ms`);
+        reveal.observe(el);
+      });
+      // Count up from near the final value, and keep the accessible label fixed.
+      const counter = new IntersectionObserver(entries=>{
+        for (const entry of entries) if(entry.isIntersecting){
+          const el=entry.target, text=el.textContent.trim(), match=text.match(/(\d+)/);
+          if(match){
+            el.setAttribute('aria-label',text);
+            const target=Number(match[1]), start=performance.now();
+            const step = now => {
+              const progress=Math.min(1,(now-start)/850), value=Math.round(target*(.72+.28*(1-Math.pow(1-progress,3))));
+              el.textContent=progress===1?text:text.replace(match[1],String(value));
+              if(progress<1) requestAnimationFrame(step);
+            };
+            requestAnimationFrame(step);
           }
-        });
-      }, 600);
+          counter.unobserve(el);
+        }
+      },{threshold:.35});
+      document.querySelectorAll('.impact-num').forEach(el=>counter.observe(el));
     }
   }
+  // 6. Reading progress and active chapter.
+  const progress = document.querySelector('.reading-progress span');
+  const sections = [...document.querySelectorAll('main > section[id]')];
+  const nav = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+  let scheduled = false;
+  function onScroll(){
+    scheduled=false;
+    const y=window.scrollY, total=document.documentElement.scrollHeight-window.innerHeight;
+    if(progress) progress.style.transform=`scaleX(${total>0?Math.min(1,y/total):0})`;
+    let current='';
+    for(const section of sections) if(section.getBoundingClientRect().top<=window.innerHeight*.36) current=section.id;
+    for(const a of nav){const active=a.hash===`#${current}`;a.classList.toggle('is-current',active);if(active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');}
+  }
+  window.addEventListener('scroll',()=>{if(!scheduled){scheduled=true;requestAnimationFrame(onScroll)}},{passive:true});
+  window.addEventListener('resize',onScroll,{passive:true});
+  onScroll();
 })();
